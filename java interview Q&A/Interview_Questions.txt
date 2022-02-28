@@ -1,0 +1,246 @@
+1. How Hashmap work internally ?
+
+Internally working of Hashmap
+
+Map<String, String> hm = new HashMap<String, String>();
+Internally an array of buckets will be created
+the size of the bucket is 16 that is 0 to 15
+the size of the initial capacity is 16
+each bucket is called a node
+
+each node have 4 parts 
+1st denotes hashcode
+2nd denotes key
+3rd denotes value
+and 4th denotes address of next node
+
+Now insert some values
+hm.put("A", "1");
+
+1) calculate the hashcode of the key
+then a key is passed to hash function
+that is
+hashcode = hash("A");
+hashcode = 65
+so suppose the hashcode of key A is 65
+
+2) calculation of index or bucket location
+Index = hashcode & (n-1);
+so pass the hashcode and n value that is 15
+index = 65 & (15-1)
+index = 1
+
+then insert the index 1st position 
+that is 
+hashcode(65) Key("A") Value(1) Nex(Null)
+
+Now insert some other values
+hm.put("B", "2");
+repeat the same steps
+
+
+so the index position we are getting is 2
+then insert this values on 2nd index position
+that is 
+hashcode(66) Key("B") Value(2) Nex(Null)
+
+Insert another entry 
+hm.put("r", "4");
+repeat the steps 
+getting index is 2 
+
+first its checking is there any index poistion available or not
+if any index position available 
+
+
+then first it compares the keys of both entries 
+if there is not matched
+then inserting an node next to already node present
+hashcode(114) Key("r") Value(4) Nex(Null)
+also reference to this node will be stored in previos node
+
+if the keys are same then replace the key with new value
+
+in this special type case 
+
+in one index position there are multiple nodes are present then this case is called hash collision
+
+hm.put(Null, 5);
+this null insertion is stored in 0th position
+hashmap accepts only one null value
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. what is marker interface?
+
+An interface that does not contain methods, fields, and constants is known as marker interface. In other words, an empty interface is known as marker interface or tag interface.
+
+It delivers the run-time type information about an object. It is the reason that the JVM and compiler have additional information about an object. 
+Marker interface is used as a tag that inform the Java compiler by a message so that it can add some special behavior to the class implementing it
+
+3 types of marker interface
+Cloneable
+Serializable
+Remote - Remote interface is a marker interface that belong to java.rmi package. It marks an object as remote that can be accessed from another machine (host).
+-------------------------------------------------------------------------------------------------------------------------------------
+
+3. hierarchy of exception in java
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+4. how to create custom exception?
+
+Sometimes we can create our own exceptions to meet our programming requirements
+such type of exceptions is called customized exceptions
+
+class Abc extends RuntimeExceptions{
+TooYoungException(String s)
+{
+super(s);
+}
+
+class TooOldException extends RuntimeExceptions[
+TooOldException(String s){
+super(s);
+
+}
+}
+
+class CustomizedExceptionDemo{
+psvm(){
+throw new TooOldException("Please Wait some time");
+}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+5. what is the use of finally block?
+
+It is not recommended to take clean up code inside try block because there is no guarantee for the execution of every statement inside try block
+It is not recomended to place clean up code inside catch block because if there is no exception then catch block wont be executed
+We require some place to maintain clean up code which should be executed always irrespective of whether exception raised or not raised or whether handle or not handled.such type of best place is nothing but finally block.
+
+hence the main objective of finally block is to maintain clean up code.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+6. when finally block will not run?
+
+System.exist(0);
+JVM itself will be shut down
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+7. difference between Application server and web server 
+
+A web server accepts and fulfills requests from clients for static content (i.e., HTML pages, files, images, and videos) from a website. Web servers handle HTTP requests and responses only.
+
+An application server exposes business logic to the clients, which generates dynamic content. It is a software framework that transforms data to provide the specialized functionality offered by a business, service, or application.
+
+Web server encompasses web container only.
+While application server encompasses Web container as well as EJB container.
+
+Web server consumes or utilizes less resources.
+While application server utilize more resources.
+
+In web servers, multithreading is not supported.
+While in application server, multithreading is supported.
+
+Web server’s capacity is lower than application server.
+While application server’s capacity is higher than web server.
+
+In web server, HTTP protocols are used.
+While in this, GUI as well as HTTP and RPC/RMI protocols are used.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+8. java support multiple inheritance ?
+No, because an raising ambuity problem
+By using interface java support Multiple interface
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+9. what is abstract class ?
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+10. can we override main method?
+No.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+11. what is constructor and whats the use of constructor ?
+
+Object creation is not enough, compusory we should perform initializing at the time of object creation.
+then object is in a position to provide response properly
+whenever we are creating an object.
+some piece of the code will automatically executed
+this piece of the code is nothing but constructor
+Hence the main objective of constructor is to provide an initialization of an object
+
+Constructor name should same as Class name
+
+Default Constructor
+Parameterized Constructor
+-------------------------------------------------------------------------------------------------------------------------------------
+
+12. which keyword will you use when you want to call parent class constructor?
+super
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+13. About ArrayList 
+
+ArrayList is a part of collection framework and is present in java.util package
+
+Underlying data structure is growable array or resizable array
+Duplicate objects are allowed
+Insertion order preserved
+Heterogeneous objects are allowed
+Null insertion is possible
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+14. For example : I have a arraylist with 10 element then i am adding 2 more element what will happen?
+
+An new arraylist wil be created and with 
+new capacity = current capacity * 3/2 +1
+that is 16
+the size will be 0-15
+
+and all arraylist elements will be copied it into the new arraylist
+old arraylist is eligibile for garbage collector.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+15. Any agreement  between hashcode and equals methode ?
+
+The hashCode() method should return the same integer value for the same object for each calling of this method unless the value stored in the object is modified.
+
+If two Objects are equal, according to the equals(Object) method, then hashCode() method must produce the same Integer on each of the two Objects.
+
+
+If two Objects are unequal, according to the equals(Object) method, It is not necessary the Integer value produced by hashCode() method on each of the two Objects will be distinct. It can be same but producing the distinct Integer on each of the two Objects is better for improving the performance of hashing based Collections like HashMap, HashTable…etc.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+16. for example : A mobile application is doing the entry of person name and he's login time into table
+tabename-- logger
+fields : login_name, timestamp
+Write a query which will give a report of Name, logintime and logout-time
+
+select login_name, min(timestamp) AS Login_time, max(timestamp) AS logout_time from logger;
+-------------------------------------------------------------------------------------------------------------------------------------
+
+17. for example :if parent class is throwing checked exception then child class will throw any exception? 
+
+same exception or child exception
+
+-------------------------------------------------------------------------------------------------------------------------------------

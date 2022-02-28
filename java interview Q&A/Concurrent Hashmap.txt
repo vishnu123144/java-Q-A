@@ -1,0 +1,18 @@
+Concurrent Hashmap
+The ConcurrentHashMap class provides a concurrent version of the standard HashMap
+So its functionality is similar to a HashMap, except that it has internally maintained concurrency.
+Depending upon the level of concurrency required the concurrent HashMap is internally divided into segments. If the level of concurrency required is not specified then it is takes 16 as the default value.
+
+So internally the ConcurrentHashMap will be divided into 16 segments.
+
+The major advantage is in case of synchronizedMap every write operation acquires lock on entire SynchronizedMap while in case of ConcurrentHashMap the lock is only on one of the segments.
+
+We get ConcurrentModification exception because the while reading the contents of the SynchronizedMap, it is modified by other thread.
+
+The major differences are-
+SynchronizedHashMap				ConcurrentHashMap
+Synchronization is at Object level		Synchronization is at segment level
+A lock is obtained for read/write operation at object level		A lock is obtained for write operation at segment level
+Concurrency level cannot be set for better optimization			Concurrency level can be set for better optimization
+ConcurrentModification Exception is thrown if a thread tries to modify an existing SynchronizedMap which is being iterated	ConcurrentModification Exception is thrown if a thread tries to modify an existing ConcurrentHashMap which is being iterated
+Since at a given time only a single Thread can modify the map and block other threads the performance is comparatively bad.	Multiple Threads can modify ConcurrentHashMap. Hence performance is much better.

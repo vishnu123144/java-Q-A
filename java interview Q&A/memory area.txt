@@ -1,0 +1,17 @@
+Memory Area in java
+
+JVM Divided into 5 types
+
+Class or Method area - The class method area is the memory block that stores the class code, variable code(static variable, runtime constant), method code, and the constructor of a Java program. (Here method means the function which is written inside the class). It stores class-level data of every class such as the runtime constant pool, field and method data, the code for methods.
+
+Heap area - The Heap area is the memory block where objects are created or objects are stored. Heap memory allocates memory for class interfaces and arrays (an array is an object). It is used to allocate memory to objects at run time
+
+Stack area -  stack memory is based on LIFO (last in, first out) principle. Stack memory is used for static memory allocation, and each executing thread in a java program has its own stack memory. Whenever a Java method is called, a new block is created in java stack memory to hold local or intermediate variables and references to other objects in the method.
+
+PC register - The main function of pc registers is to store the address of currently executing the instruction. It also stores the address of threads responsible for executing current instruction.
+
+Native method Stack - This area is implemented using languages other than java. With the creation of new threads, memory is allocated in this area for each created thread
+
+
+
+

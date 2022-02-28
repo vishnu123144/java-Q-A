@@ -1,0 +1,2 @@
+//3rd highest salary
+select * from employeeinfo e1 where 3-1 = (select count(distinct salary)from employeeinfo e2 where e2.salary > e1.salary);

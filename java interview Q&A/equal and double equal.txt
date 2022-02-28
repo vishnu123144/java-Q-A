@@ -1,0 +1,16 @@
+Difference b/w equals and ==
+
+
+The main difference between the .equals() method and == operator is that one is a method, and the other is the operator.
+We can use == operators for reference comparison (address comparison) and .equals() method for content comparison. In simple words, == checks if both objects point to the same memory location whereas .equals() evaluates to the comparison of values in the objects.
+If a class does not override the equals method, then by default, it uses the equals(Object o) method of the closest parent class that has overridden this method
+
+
+Contract b/w hashcode and equals method
+The hashCode() method should return the same integer value for the same object for each calling of this method unless the value stored in the object is modified.
+
+If two Objects are equal, according to the equals(Object) method, then hashCode() method must produce the same Integer on each of the two Objects.
+
+
+If two Objects are unequal, according to the equals(Object) method, It is not necessary the Integer value produced by hashCode() method on each of the two Objects will be distinct. It can be same but producing the distinct Integer on each of the two Objects is better for improving the performance of hashing based Collections like HashMap, HashTable…etc.
+

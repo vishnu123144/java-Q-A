@@ -1,0 +1,2 @@
+Java JIT Compiler – Overview
+The Just-In-Time compiler is one of the integral parts of the Java Runtime Environment. It is mainly responsible for performance optimization of Java-based applications at run time or execution time. In general, the main motto of the compiler is increasing the performance of an application for the end user and the application developer.

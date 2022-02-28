@@ -1,0 +1,50 @@
+Advantages of singleton classes
+if several people have same requirement then it is not recommended to create a separeate object
+for every requirement we have create only one object and we can reuse same object for every similar requirement
+so that perfomance and memory utilizations will be improved
+
+this is the central idea of singleton classes
+
+for example 
+Runtime
+BusinessDelegate
+ServiceLocator
+
+Create our own singleton classes
+
+by using 
+private static variables
+private constructors
+public factory method
+
+class Test {
+
+	private static Test t = null;
+
+	private Test() {
+
+	}
+
+	public static Test getTest() {
+
+		if (t == null) {
+			t = new Test();
+		}
+
+		return t;
+	}
+}
+
+public class SingletonClassDemo {
+
+	public static void main(String[] args) {
+
+		System.out.println(Test.getTest().hashCode());
+		System.out.println(Test.getTest().hashCode());
+
+		System.out.println(Test.getTest().hashCode());
+		System.out.println(Test.getTest().hashCode());
+
+	}
+
+}

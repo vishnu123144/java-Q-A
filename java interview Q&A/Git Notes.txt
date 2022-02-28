@@ -1,0 +1,82 @@
+Git hub Notes
+
+What is Git
+Git is a free open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+Git Install
+go to git-scm.com
+click Download
+
+Check version git --version
+
+Using git bash - go to start type git bash
+
+--Create Git Hub id
+go to github.com
+
+Check git hub for locally connected or not
+git config --list
+
+Set username and email
+git config --global user.name "mahesh"
+git config --global user.email "enter email"
+
+--Clone repository into locally
+git clone url
+
+-- Create local folder and connect with server git hub
+git init - for initializing git hub to local and create hidden folder .git
+
+git status - for checking what is the status of repository
+
+git add - for track files by git server repo also known as git stagging
+git add file_name
+
+git add . - track all untracked files also known as git stagging
+
+git commit - final save for changing file
+git commit -m "Message 1 (This is mandatory)" -m "Message 2(Description, not mandatory)
+
+ ----------- push the local git to server git--------------
+for connect local repo to server repo
+git remote add origin "url of repo"
+
+for save code 
+git push origin master
+give username and password
+
+if some files are missing in local repo then run pull command
+git pull origin master
+
+if unrelated histories it means there are some conflict for server commit and local commit
+git pull origin master --allow-unrelated-histories
+
+for checking locally which server are connected
+git remote -v
+
+for checking server which locals are connected
+go to profile in right corner go to developer setting got personal access tokens
+
+
+
+
+------------------Create a branch----------------
+check all branches in repository
+git branch
+
+create a new branch and also selects them
+git checkout -b Branch_name
+
+
+switch to another branch
+git checkout branch_name
+
+
+
+
+
+
+
+
+
+

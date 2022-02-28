@@ -1,0 +1,138 @@
+Java OOPS
+-Abstraction 
+Hide internal implementation and just highlights the set of services is called abstraction
+We can achieve abstraction by using abstract class and interfaces
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+-Inheritance  - Child class acquires all the properties from parent class is known as inheritance.
+
+Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
+by using extends keywords.
+
+Single level
+Multi level inheritance
+Hierachical
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+-Encapsulation - Binding of data and corresponding methods into a single unit is called Encapsulation.
+By using private modifier we can achieve encapsulation
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+-Thread - 
+Executing several tasks simulteneously where each task is a separate independent part of the same program
+and each independent part is called Thread
+
+By extending THread class
+By implementing Runnable Interface
+
+---------------------------------------------------------------------------------------------------------------------------------
+Spring
+-Dependency Injection and how to achieve?
+
+Dependency Injection design pattern allows us to remove hard coded dependencies and make our application loosely coupled, extendable and maintainable.we can implement dependency injection pattern to move the dependency resolution from compile time to run time.
+
+How can Implement DI
+XML
+Java annotations
+
+1. Constructor Based Dependency Injection - Spring will use the matching constructor to resolve and inject the dependency.
+ When the annotation @Autowired is used on top of the class constructor, it is referred to as Constructor-based Dependency Injection. 
+@Autowired
+    public Person(Address address) {
+        this.address = address;
+    }
+
+2. Setter Based Dependency Injection - Setter-based dependency injection is achieved through the setter method on the bean after instantiating it using a no-arg constructor
+When the annotation @Autowired is used on top of the class’s setter method, it is referred to as Setter based Dependency Injection.
+@Autowired
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+3. Field or Property-Based Dependency Injection - When the annotation @Autowired is used on top of the field or property in the class, it is referred to as Field-based Dependency Injection
+We can also inject dependencies using fields or properties of a class.
+@Autowired
+    private Address address
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+-Singleton and prototype
+
+Singleton - Only one instance of the bean will be created for each container
+singleton is by default and it is not thread safe
+
+Prototype - Every time new instance of the bean will be created for each new request.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+-Request flow
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+SQL
+-Difference between procedure and function?
+
+Diff b/w funtion and procedure
+
+
+A function deals with as an expression.	
+Whereas a procedure does not deal with as an expression.
+
+Function is used to calculate something from a given input. Hence it got its name from Mathematics.
+While procedure is the set of commands, which are executed in a order.
+
+The function can be called by a procedure.	
+But a procedure can not be called by a function.
+
+In sql, inside the function we can not use the DML(Data manipulation language) commands such as Insert, Delete, Update.
+inside the procedure we can use DML commands.
+
+Functions can be called through sql queries.	
+the procedure can’t be called through a sql query.
+
+Each time functions are compiled when they are called.	
+Whereas, procedures are compiled only once and can be called again and again as needed without being compiled each time.
+
+The return statement of a function returns the control and function’s result value to the calling program.	
+While the return statement of the procedure returns control to the calling program, it can not return the result value.
+
+Function doesn’t support try-catch blocks.	
+While it supports try-catch blocks.
+
+Function can be operated in the SELECT statement.	
+While it can’t be operated in the SELECT statement.
+
+Function does not support explicit transaction handles.	
+While procedure supports explicit transaction handles.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+-SQL query to fetch the details of Employee and department table where department id is foreign key?
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+-Primary key and unique key
+Primary key is one of the candidate key chosen by the database designer to uniquely identify the records in a table
+the values can never be NULL
+the values must always be unique(not duplicate)
+the values must be assigned when inserting a record
+The value in a primary key column can never be modified or updated if any foreign key refers to that primary key
+
+Unique Key - A unique key is a group of one or more than one fields or columns of a table which uniquely identify database record.
+
+Difference b/w primary key and Unique key
+
+There can be one primary key in a table while there can be multiple unique keys in the table.
+The purpose of the primary key is to enforce entity integrity on the other hand the purpose of unique key is to enforce unique data.
+In primary key, default Index is clustered whereas in unique key, default index is not-clustered
+Primary key does not allow null columns whereas unique allows null columns.
+In the primary key, duplicate keys are not allowed while in a unique key, if one or more key parts are null, then duplicate keys are allowed.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------

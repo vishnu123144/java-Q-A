@@ -1,0 +1,74 @@
+Join
+A join statement is used to combine data or rows from two or more tables based on a common field between them.
+
+The Sql joins clause is used to combine records from two or more tables in a database
+--------------------------------------------------------------------------------
+
+Types of Join
+Inner join - The INNER JOIN keyword selects records that have matching values in both tables.
+It produces a data set that includes records from the left table which have matching records from the right table.
+
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+
+
+Left Join - 
+The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is NULL records from the right side, if there is no match.
+
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+
+Right Join - The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is NULL records from the left side, if there is no match.
+
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+
+
+Full join - 
+The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records
+It is the combination of Left join and Right Join
+Null value will be displayed for both unmathced columns.
+
+
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
+
+
+Self join - A self join is a join in which a table is joined with itself, specially when the table has a foreign key which references its own Primary key
+
+for example an employee table
+empId and managerId reference each other because employee is also an manager
+
+
+Internally sql server creates an virtually copy of an table and creates relation with each other
+execute the result
+SELECT T1.col_name, T2.col_name...    
+FROM table1 T1, table1 T2    
+WHERE join_condition;    
+
+We can do this with the help of table name aliases to assign a specific name to each table's instance.
+
+
+Cross Join(cartesian product) - The sql cross joins produces a result set which is the number of rows in the first table multiplied by the number of rows in the second table.This kind of result is called cartesian product.
+
+calculate its formula
+Cross join = Total no of rows in table1 * Total no of rows in table2)
+
+you can not create any relationship in cross join
+
+ CROSS JOIN keyword must be added after the FROM clause
+
+no of employee tables(5) * no of employeeDetails(6) = 30 records
+
+select columns from table1 cross join table2
+
+

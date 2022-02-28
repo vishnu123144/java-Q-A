@@ -1,0 +1,132 @@
+HashMap -
+
+Hashmap is a child interface of Map
+If we want to represent a group of objects as key-value pair then we should go for hashmap interface
+both key and values are objects only
+Duplicate keys are not allowed but values can be duplicated
+Each key-value pair is called an entry interface
+It uses hashtable data structure
+Insertion order is not preserved and it is based hashcode of the keys
+Heterogeneous objects is allowed both key and values
+Null is allowed only once and values any no of times
+it is suitable for search operations
+
+
+ENtry interface having 3 methods
+getKey()
+getValue()
+setValue()
+
+what is hashing
+Hashing is the process of mapping the data to some representative integer value using the concept of hashing algorithms. In Java, a hash code is an integer value that is linked with each object
+
+hashcode("mahesh") = hashcode
+
+---------------------------------------------------------------------------------------------------------
+Internally working of Hashmap
+Map<String, String> hm = new HashMap<String, String>();
+Internally an array of buckets will be created
+the size of the bucket is 16 that is 0 to 15
+the size of the initial capacity is 16
+each bucket is called a node
+
+each node have 4 parts 
+1st denotes hashcode
+2nd denotes key
+3rd denotes value
+and 4th denotes address of next node
+
+Now insert some values
+hm.put("A", "1");
+
+1) calculate the hashcode of the key
+then a key is passed to hash function
+that is
+hashcode = hash("A");
+hashcode = 65
+so suppose the hashcode of key A is 65
+
+2) calculation of index or bucket location
+Index = hashcode & (n-1);
+so pass the hashcode and n value that is 15
+index = 65 & (15-1)
+index = 1
+
+then insert the index 1st position 
+that is 
+hashcode(65) Key("A") Value(1) Nex(Null)
+
+Now insert some other values
+hm.put("B", "2");
+repeat the same steps
+
+
+so the index position we are getting is 2
+then insert this values on 2nd index position
+that is 
+hashcode(66) Key("B") Value(2) Nex(Null)
+
+Insert another entry 
+hm.put("r", "4");
+repeat the steps 
+getting index is 2 
+
+first its checking is there any index poistion available or not
+if any index position available 
+
+
+then first it compares the keys of both entries 
+if there is not matched
+then inserting an node next to already node present
+hashcode(114) Key("r") Value(4) Nex(Null)
+also reference to this node will be stored in previos node
+
+if the keys are same then replace the key with new value
+
+in this special type case 
+
+in one index position there are multiple nodes are present then this case is called hash collision
+
+hm.put(Null, 5);
+this null insertion is stored in 0th position
+hashmap accepts only one null value
+
+
+---------------------------------------------------------------------------------------------------
+
+get operation internally
+we call
+hm.get("A");
+1) calculation of hashcode of the key
+use same hash function
+hashcode = hash("A");
+hashcode = 65
+
+2) calculate index
+index = 65 & (15-1)
+index = 1
+
+we have index 1
+it compares hashcode and keys, if it is same 
+so it return the value that 1
+
+--------------------------------------------------------------------------------------------------------------
+
+Load factor - The load factor is the measure that decides when to increase the capacity of the Map.
+default lf is 75% or 0.75
+formula = initial capacity of the hashmap*Load factor of the hashmap. 
+16*0.75=12
+it inserted 12th node then a new array of bucket is created 32
+
+
+
+
+
+
+
+
+
+
+
+
+

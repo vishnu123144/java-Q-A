@@ -1,0 +1,49 @@
+Garbage Collector in java -
+It is the process by which Java programs perform automatic memory management. Java programs compile to bytecode that can be run on a Java Virtual Machine, or JVM for short.
+When Java programs run on the JVM, objects are created on the heap, which is a portion of memory dedicated to the program.
+Eventually, some objects will no longer be needed. The garbage collector finds these unused objects and deletes them to free up memory.
+
+When there is no reference to an object, then that object is assumed to be no longer needed, and it is removed by Garbage collecor for cleaning the memory
+
+Hence the main purpose of GC is to destroy unused objects.
+This is accomplished by JVM
+
+
+Whenever you run a java program then JVM creates 3 threads
+main thread
+thread shceduler
+GC thread
+
+Just before destroying an object, Garbage Collector calls finalize() method on the object to perform cleanup activities. Once finalize() method completes, Garbage Collector destroys that object.
+finalize() method is present in Object class with the following prototype.
+
+we can GC explicitly by using
+System.gc() or
+Runtime.getRuntime.gc()
+
+There is no guarantee that any of the above two methods will run Garbage Collector.
+---------------------------------------------------------------------------------------
+
+How can an object be unreferenced?
+
+By nulling the reference
+By assigning a reference to another
+By anonymous object etc
+
+Employee e=new Employee();  
+e=null;  
+
+By assigning a reference to another
+
+Employee e1=new Employee();  
+Employee e2=new Employee();  
+e1=e2;//now the first object referred by e1 is available for garbage collection
+By anonymous object  - new Employee();  
+----------------------------------------------------------
+Internally GC follows marks and sweep algorithm
+https://www.geeksforgeeks.org/mark-and-sweep-garbage-collection-algorithm/
+
+
+
+
+

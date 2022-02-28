@@ -1,0 +1,28 @@
+Dependency Injection - ) Dependency Injection design pattern allows us to remove hard coded dependencies and make our application loosely coupled, extendable and maintainable.we can implement dependency injection pattern to move the dependency resolution from compile time to run time.
+
+1. Constructor Based Dependency Injection - Spring will use the matching constructor to resolve and inject the dependency.
+ When the annotation @Autowired is used on top of the class constructor, it is referred to as Constructor-based Dependency Injection. 
+@Autowired
+    public Person(Address address) {
+        this.address = address;
+    }
+
+2. Setter Based Dependency Injection - Setter-based dependency injection is achieved through the setter method on the bean after instantiating it using a no-arg constructor
+When the annotation @Autowired is used on top of the class’s setter method, it is referred to as Setter based Dependency Injection.
+@Autowired
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+3. Field or Property-Based Dependency Injection - When the annotation @Autowired is used on top of the field or property in the class, it is referred to as Field-based Dependency Injection
+We can also inject dependencies using fields or properties of a class.
+@Autowired
+    private Address address
+
+
+Difference b/w CI and SI
+Partial dependency: can be injected using setter injection but it is not possible by constructor. Suppose there are 3 properties in a class, having 3 arg constructor and setters methods. In such case, if you want to pass information for only one property, it is possible by setter method only.
+
+Overriding: Setter injection overrides the constructor injection. If we use both constructor and setter injection, IOC container will use the setter injection.
+
+Changes: We can easily change the value by setter injection. It doesn't create a new bean instance always like constructor. So setter injection is flexible than constructor injection.

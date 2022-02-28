@@ -1,0 +1,45 @@
+Internally working of Arraylist 
+
+Dynamic array - Dynamic in nature, in this when array is full then its create new space automatically 	
+
+Arraylist internally uses dynamic array data structure
+
+its follow Object[] concept
+
+Arraylist defined as transient Object[] elementData;  
+
+ArrayList<Integer> list = new ArrayList<Integer>(20);
+define initial capacity
+
+
+ArrayList<Integer> list = new ArrayList<Integer>();
+
+the new arraylist will be created, the initially capacity for this array is 10
+and default initial fill ratio is 0.75
+
+adding some eleemnts
+list.add(20);
+
+element store in index 0th poisition
+
+if arraylist reaches its maximum size then a new Arraylist will be created
+by using ensureCapacity()
+new capacity = (current capacity*3/2)+1
+ = 16
+
+now the new arraylist capacity is 15
+then all the previous arraylist elements copied into an new array
+and the previous arraylist will be for GC
+
+if we want to remove arraylist elements
+it have 2 ways first it passes index position
+list.remove(10);
+
+second is pass value
+list.remove(new Integer(10));
+
+so it can internally calls trimToSize() for removing an element
+
+When items are deleted from an ArrayList in Java, the gap produced by the removal of an element must be filled in the underlying array using
+System.arraycopy()
+

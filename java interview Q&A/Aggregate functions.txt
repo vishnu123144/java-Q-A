@@ -1,0 +1,20 @@
+Aggregate Functions - 
+SQL aggregation function is used to perform the calculations on multiple rows of a single column of a table. It returns a single value.
+It is also used to summarize the data.
+
+Count - COUNT function is used to Count the number of rows in a database table. It can work on both numeric and non-numeric data types.
+Sum - Sum function is used to calculate the sum of all selected columns. It works on numeric fields only
+SELECT SUM(COST)  
+FROM PRODUCT_MAST; 
+
+AVG - The AVG function is used to calculate the average value of the numeric type. AVG function returns the average of all non-Null values.
+SELECT AVG(COST)  
+FROM PRODUCT_MAST;  
+
+Max - MAX function is used to find the maximum value of a specified column
+SELECT MAX(RATE)  
+FROM PRODUCT_MAST;  
+
+MIN - Min function is used to find the minimum value of a specified column
+SELECT Min(RATE)  
+FROM PRODUCT_MAST;  

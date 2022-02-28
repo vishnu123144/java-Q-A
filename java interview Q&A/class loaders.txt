@@ -1,0 +1,25 @@
+Class Loaders
+
+ClassLoader in Java is called by the Java Runtime Environment to dynamically load the classes whenever required by the application in the Java Virtual Machine. ClassLoaders are a part of the Java Runtime Environment, 
+
+it is an abstract class.
+
+It is a subsystem of JVM which is used to load class files. It is mainly responsible for three activities.
+
+Loading
+Linking
+Initialization
+
+
+ClassLoader loads a class by using getClassLoader() method . 
+All classes are loaded based on their names and if any of these classes are not found then it returns a NoClassDefFoundError or ClassNotFoundException.
+
+
+Bootstrap Class loader - It loads standard JDK class files from rt.jar and other core classes. It is a parent of all class loaders.
+
+Extension Class loader - It delegates class loading request to its parent. If the loading of a class is unsuccessful, it loads classes from jre/lib/ext directory
+
+System class loader - It loads application specific classes from the CLASSPATH environment variable. It can be set by a programmer to its system environment or classpath command line options.
+
+
+

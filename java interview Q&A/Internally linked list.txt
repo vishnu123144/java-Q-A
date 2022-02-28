@@ -1,0 +1,29 @@
+Internal Working of linked List
+List<integer> list = new LinkedList<Integer>();
+
+it created an doubly linked list internally
+
+internally a method node() 
+
+Node is created which has 3 parts
+first part is stored previous element data
+second part store data element 
+third part store next element
+
+if adding a elements using addFirst, addLast method then internally linked list uses linkFirst and linkLast methods the reference of that method will be first() and last()
+
+list.add(10)
+list.add(35)
+list.add(78)
+
+if we want to delete 35 element
+list.remove(1)
+or
+list.remove(new Integer(35));
+
+then Node of 35 will be remvoed and automatically Node 10 point to next adress of Node 78
+
+
+
+
+

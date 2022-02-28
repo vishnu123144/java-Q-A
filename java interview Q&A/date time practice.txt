@@ -1,0 +1,50 @@
+create table hosp(id int not null primary key, fname varchar(255), dob date, dotime time, dat datetime);
+
+insert into hosp(id,fname, dob, dotime, dat) values(1,'Vinod', '1994-01-05', '05:05:55', '1994-01-05 05:05:55');
+
+to know current date and time
+select curdate() - 2022-02-15 - retreive current date only
+select curtime() - 21:57:46 - retreive time only  HH:MM:SS
+select now() - 2022-02-15 21:58:23 - retreive both date and time  - YYYY-MM-DD HH:MM:SS
+
+
+to insert values with curdate() etc
+insert into hosp(id,fname, dob, dotime, dat) values(2,'Kundan', curdate(), curtime(), now());
+
+table for employee
+create table employee(id int not null primary key auto_increment, emp_name varchar(255), salary int, login_time time, logout_time time, doj date, login_date_time datetime, logout_date_time datetime);
+
+
+insert into employee(emp_name, salary, login_time, logout_time, doj, login_date_time, logout_date_time) values('Mahesh', 100000, '08:00:00', '19:02:10', '2022-02-03', '2022-02-03 08:00:00', '2022-02-03 19:02:10');
+
+insert into employee(emp_name, salary, login_time, logout_time, doj, login_date_time, logout_date_time) values('Akash', 30000, '08:00:00', '19:02:10', '2022-01-05', '2022-01-05 08:00:00', '2022-01-05 19:02:10');
+
+insert into employee(emp_name, salary, login_time, logout_time, doj, login_date_time, logout_date_time) values('Suraj', 20000, '09:05:12', '18:02:10', '2022-02-11', '2022-02-11 09:05:12', '2022-02-11 18:02:10');
+
+insert into employee(emp_name, salary, login_time, logout_time, doj, login_date_time, logout_date_time) values('Amit', 25000, '07:05:12', '19:02:10', '2022-02-02', '2022-02-02 07:05:12', '2022-02-02 19:02:10');
+
+insert into employee(emp_name, salary, login_time, logout_time, doj, login_date_time, logout_date_time) values('Chandu', 70000, '11:05:12', '17:02:10', '2022-02-01', '2022-02-01 11:05:12', '2022-02-01 17:02:10');
+
+insert into employee(emp_name, salary, login_time, logout_time, doj, login_date_time, logout_date_time) values('Sushil', 75000, '08:05:12', '19:02:10', '2022-02-12', '2022-02-12 08:05:12', '2022-02-12 19:02:10');
+
+insert into employee(emp_name, salary, login_time, logout_time, doj, login_date_time, logout_date_time) values('Niraj', 10000, '06:15:07', '19:02:10', '2022-01-10', '2022-01-10 06:15:07', '2022-01-10 19:02:10');
+----------------------------------------------------------------------------------------------------------
+
+find time from timestamp data type
+SELECT id, name, cast(login as time) FROM datetimepractice.student;
+-------------------------------------------------------------------------------------------------------------
+extract hours from timestamp
+SELECT *, extract(hour from login) FROM datetimepractice.student;
+
+--------------------------------------------------------------------------------------
+
+write a query for employee name where login from 9 to 12
+select * from employee where extract(hour from login_time) between 9 and 12;
+
+select * from employee where login_time between '09:00:00' and '12:00:00';
+
+--------------------------------------------------------------------------------------------------------------
+
+query for the employee with login time logout time (If both login and logout columns define)
+select * from employee where extract(hour from login_time)  = 8 and extract(hour from logout_time)  = 19;
+

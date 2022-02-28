@@ -1,0 +1,57 @@
+Key - Key is an attribute or set of attribute that uniquely identifies any record from the table
+---------------------------------------------------------
+
+Types of Keys
+Super Key
+Candidate Key
+Primary Key
+Alternate key
+Foreign Key
+Composite Key
+
+---------------------------------------------------------------------------------------------------------------
+
+1) Super Key - A super key is a set of one or more attributes (columns), which can uniquely identify a row in a table.
+ex {empId, aadhar}, {Name, empId}, {empId}
+it is a superset of candidate key
+a table can have many super keys
+
+2) Candidate Key - CANDIDATE KEY in SQL is a set of attributes that uniquely identify tuples in a table. Candidate Key is a super key with no repeated attributes. The Primary key should be selected from the candidate keys. Every table must have at least a single candidate key. A table can have multiple candidate keys but only a single primary key.
+
+
+It must contain unique values
+Candidate key in SQL may have multiple attributes
+Must not contain null values
+It should contain minimum fields to ensure uniqueness
+Uniquely identify each record in a table
+
+3)Primary Key - Primary key is one of the candidate key chosen by the database designer to uniquely identify the records in a table
+the values can never be NULL
+the values must always be unique(not duplicate)
+the values must be assigned when inserting a record
+The value in a primary key column can never be modified or updated if any foreign key refers to that primary key
+
+4) Alternate keys - Out of all candidate keys, Only one gets selected as primary key, remaining keys are knows as alternate keys.
+----------------------------------------------------------------------------------------------------------------------------------
+
+5) Foreign Key - 
+A foreign key is 
+a key used to link two tables together
+A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+the purpose of foreign key is to ensure or maintain referential integrity of the data
+The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+
+Foreign key references the primary key of the table
+Foreign key can take only those values which are present in the primary key of the references relation
+Foreign key may have a name other than that of a primary key
+Foreign key can take null value
+There is no restruction on a foreing key to be unique
+
+---------------------------------------------------------------------------------------------------------
+
+6) Composite Key - COMPOSITE KEY is a combination of two or more columns that uniquely identify rows in a table.
+It is also known as compound key
+A composite key can also be made by the combination of more than one candidate key.
+A composite key cannot be null.
+
+-------------------------------------------------------------------------------------------------------------------

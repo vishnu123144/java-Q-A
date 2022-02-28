@@ -1,0 +1,26 @@
+Main method in java
+
+public static void main(String args[])
+
+remove public - CTE - Main method not found in class basicmain.SampleMainMethod, please define the main method as:
+   public static void main(String[] args)
+
+
+remove static - CTE - Error: Main method is not static in class basicmain.SampleMainMethod, please define the main method as:
+   public static void main(String[] args)
+
+
+remove void - RE return type for that method is missing
+
+keep return type String and return something - CTE
+
+change main method name to another - CTE - Main method not found in class basicmain.SampleMainMethod, please define the main method as:
+   public static void main(String[] args)
+
+
+change String args - CTE - JavaFX application class must extend javafx.application.Application
+
+change string [] to integer - CTE JavaFX application class must extend javafx.application.Application
+
+
+

@@ -1,0 +1,45 @@
+write a sql query to find the name of the department where more than 2 employees are working
+
+select d.dept_name from department d left join employee e 
+on d.dept_id = e.dept_id
+group by e.dept_id
+having count(e.dept_id) > 2;
+--------------------------------------------------------------------------
+
+write a query to calculate the average salary of each department which is higher than 75000. find department name also
+
+select d.dept_name, avg(e.salary) from employee e
+left join department d
+on e.dept_id = d.dept_id
+group by e.dept_id
+having avg(e.salary) > 75000
+order by d.dept_name desc;
+--------------------------------------------------------------------------------------------------------------------------
+
+write a query to find the manager and employee who belongs to the same city
+
+select e.emp_name, m.manager_name, e.city from employee e
+left join manager m
+on e.manager_id  = m.manager_id
+where e.city=m.city;
+
+-------------------------------------------------------------------------------------------------------------------------
+
+write a query to find those employees whose salary exist 35000 and 90000 with department name and manager name.
+
+select e.salary, d.dept_name, m.manager_name, e.emp_name from employee e
+Inner join department d
+On e.dept_id=d.dept_id Inner join manager m
+On e.manager_id=m.manager_id
+where e.salary between 35000 and 90000;
+
+
+------------------------------------------------------------------
+find the no of employees working in each department
+
+select count(*)as count, d.dept_name 
+from employee e
+inner join department d
+on e.dept_id = d.dept_id;
+
+

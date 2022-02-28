@@ -1,0 +1,7 @@
+Why string is immutable
+
+String object is given as immutable not from string pooling point of view
+Because string object is created as immutable string pooling is implemented
+
+String object is given as immutable for storing this object as a key in collection map object
+map type of object is hashtable to store key as a string inside a map object, so string is given as immutable

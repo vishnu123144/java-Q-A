@@ -1,0 +1,36 @@
+Exception Hierachy
+
+Error - In Java, an error is a subclass of Throwable that tells that something serious problem is existing and a reasonable Java application should not try to catch that error. Generally, it has been noticed that most of the occurring errors are abnormal conditions and cannot be resolved by normal conditions
+
+Erros vs Exceptions
+https://www.javatpoint.com/exception-vs-error-in-java
+
+Exceptions are recoverable
+Errros are not recoverable
+
+
+Most of the times Exceptions are caused by prog code
+Most of the times Error not cause by our program code
+our prog code is not responsible
+
+
+being a prog if error is caused then prog not handle it
+Errors are caused due to lack of system resource
+may be memory problem, hardware problem
+like stackoverflow error
+
+-------------------------------------------------------
+outofmemoryerror
+A java.lang.OutOfMemoryError is a runtime error in Java which occurs when the Java Virtual Machine (JVM) is unable to allocate an object due to insufficient space in the Java heap. The Java Garbage Collector (GC) cannot free up the space required for a new object, which causes a java.lang.OutOfMemoryError
+
+stackoverflowerror
+java.lang.StackOverflowError occurs when the application stack continues to grow until it reaches the maximum limit
+
+LinkageError
+LinkageError happens when “a class has some dependency on another class; however, the latter class has incompatibly changed after the compilation of the former class
+
+------------------------------------------------------------------------
+classnotfound
+ClassNotFoundException is a checked exception in Java that occurs when the JVM tries to load a particular class but does not find it in the classpath
+----------------------------------------------------------------------------
+

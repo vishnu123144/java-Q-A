@@ -1,0 +1,152 @@
+1) Overriding overloading, (increasing and decreasing of scopes, access specifiers)(imp: private specifiers)
+
+Methods declared public in a superclass also must be public in all subclasses.
+Methods declared protected in a superclass must either be protected or public in subclasses; they cannot be private.
+Methods declared private are not inherited at all, so there is no rule for them
+
+protected - default - CTE
+protected - public - Running
+protected - protected - Running
+protected - private - CTE
+
+private - private - remove unused method (Warning)
+private - public - remove unused method (Warning)
+private - default - remove unused method (Warning)
+private - protected - remove unused method (Warning)
+
+public - protected - CTE
+public - public - Running
+public - private - CTE
+public - default - CTE
+
+default - private - CTE
+default - public - Running
+default - protected - Runing
+default - default - Running
+
+final - non final - CTE
+non final - Final - Running
+final - final - CTE
+
+static - non static - CTE
+non static - static - CTE
+static - static - Running(method hiding)
+
+-------------------------------------------------------------
+
+overloading
+
+protected - default - Running
+protected - public - Running
+protected - protected - Running
+protected - private - remove unused methods but use same class
+
+private - private - remove unused method (Warning) - but use same class
+private - public - remove unused method (Warning)
+private - default - remove unused method (Warning)
+private - protected - remove unused method (Warning)
+
+public - protected - Running
+public - public - Running
+public - private -  remove unused method (Warning) - but use same class
+public - default - Running
+
+default - private - remove unused method (Warning) - but use same class
+default - public - Running
+default - protected - Runing
+default - default - Running
+
+final - Running
+static - Running
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+13. sql query- consists of location="PUNE,BLR,MUMBAI",name,id retrieve data based on location and count (use groupby)
+
+select  count(*) from persons where location = 'PUNE' group by location;
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+14. sql query- table:employee-> id,name table:depart->id,name id is the foreign key in dept. Retrieve their data 
+
+select * from employee e1 left join department d1 on e1.emp_id = d1.dept_id order by emp_id;
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Spring exceptions
+
+Exception handling in spring
+
+Spring @ExceptionHandler annotation
+To handle exceptions in String MVC, we can define a method in controller class and use the annotation @ExceptionHandler on it. Spring configuration will detect this annotation and register the method as exception handler 
+
+pass arguments to this annotation
+ For example, an exception argument, request and/or response objects, session object, locale object and model object etc.
+
+it returns For example, ModelAndView object, Model object, View Object, view name as String etc.
+
+@ExceptionHandler(NullPointerException.class)
+public ModelAndView handleException(NullPointerException ex)
+{
+  //Do something additional if required
+  ModelAndView modelAndView = new ModelAndView();
+  modelAndView.setViewName("error");
+  modelAndView.addObject("message", ex.getMessage());
+  return modelAndView;
+}
+
+
+Spring handle global exception by using
+Spring @ExceptionHandler Global exception handling with @ControllerAdvice
+
+By default the methods in an @ControllerAdvice apply globally to all Controllers. We can create a class and add @ControllerAdvice annotation on top. Then add @ExceptionHandler methods for each type of specific exception classes in it.@ControllerAdvice
+@ControllerAdvice
+public class CustomExceptionHandler extends ResponseEntityExceptionHandler 
+{
+  @ExceptionHandler(Exception.class)
+  public final ResponseEntity<ErrorResponse> handleAllExceptions(Exception ex, WebRequest request) {
+    List<String> details = new ArrayList<>();
+    details.add(ex.getLocalizedMessage());
+    ErrorResponse error = new ErrorResponse(ApplicationConstants.SERVER_ERROR, details);
+    return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Al project explanations
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Introduction
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+7) how to deploy to servers, what is there in war file, 
+what if there is a problem in deploying war file, what will you check
+
+First, we extend our main class to SpringBootServletInitializer. This tells spring that your main class will be the entry point to initialize your project in server.
+
+Next, we override the configure method of SpringBootServletInitializer. We tell spring to build the sources from our Main class. 
+
+Finally, we tell maven to package the project in to WAR. In your pom.xml, change the attribute value for packaging from jar to war
+
+Then try to build your project using:
+
+mvn clean
+mvn package
+
+Copy our WAR file from target/spring-boot-tomcat.war to the tomcat/webapps/ folder
+in locally
+
+and for server 
+start server command -   nohup java -jar Communicator_latest-0.0.1-SNAPSHOT.jar > Communicator_latest.log 2>&1 & echo $! > save_pid_Communicator_latest.txt
+
+log file check command :-  tail -f Communicator_latest.log
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+7.2) what if i want war file in different location. what will you do at the time of building war file?
+
+-----------------------------------------------------------------------------------------------------------------------------------------
